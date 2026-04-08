@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokesh & Radha | Wedding Invitation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <style>
+        /* Base Styles & Color Palette */
+        :root {
+            --gold: #C5A059;
+            --dark-gold: #9E7D3E;
+            --text-dark: #2C2C2C;
+            --text-muted: #555555;
+            --bg-cream: #FDFBF7;
+            --bg-faq: #F5F1E7;
+        }
+
+        /* Lenis Smooth Scroll Recommended CSS */
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased; /* Makes fonts look sharper on Mac/iOS */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .script-font {
+            font-family: 'Great Vibes', cursive;
+            color: var(--gold);
+            font-weight: normal;
+            letter-spacing: normal !important; 
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 40px);
+            text-align: center;
+            position: relative;
+            z-index: 2; 
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                        transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Small Logo Styling */
+        .ganesha-logo {
+            width: clamp(40px, 6vw, 60px); 
+            height: auto;
+            margin: 0 auto 10px auto;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Elegant Image Arch Styling */
+        .image-slot {
+            width: 100%;
+            max-width: clamp(280px, 40vw, 380px);
+            height: clamp(380px, 50vw, 500px);
+            object-fit: cover;
+            border-radius: 200px 200px 15px 15px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            margin: 0 auto;
+            border: clamp(6px, 1vw, 10px) solid white;
+            transition: transform 0.6s ease;
+            display: block;
+        }
+
+        .image-slot:hover {
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+        }
+
+        /* Wedding Specific Image Styling */
+        .wedding-img-slot {
+            max-width: 100%;
+            height: clamp(250px, 40vw, 450px);
+            border-radius: 20px;
+            object-fit: cover;
+            border: clamp(6px, 1vw, 10px) solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            margin: 20px auto;
+        }
+
+        /* Hero / Welcome Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(253, 251, 247, 0.7), rgba(253, 251, 247, 1)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: clamp(40px, 5vw, 60px) 20px;
+            position: relative;
+        }
+
+        .ganesha {
+            color: #d32f2f;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-img {
+            border-radius: 50%; 
+            width: clamp(220px, 30vw, 300px);
+            height: clamp(220px, 30vw, 300px);
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 2;
+        }
+
+        #hero h1 {
+            font-size: clamp(3.5rem, 8vw, 5.5rem);
+            margin: 10px 0 20px 0;
+            color: var(--text-dark);
+            line-height: 1.1;
+            letter-spacing: 2px;
+        }
+
+        #hero h2 {
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            margin-bottom: -10px; 
+        }
+
+        #hero p, #hero h2, #countdown {
+            position: relative;
+            z-index: 2;
+        }
+
+        #hero p {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+        
+        /* Countdown Timer */
+        #countdown {
+            display: flex;
+            gap: clamp(10px, 2vw, 25px);
+            margin-top: 45px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.1);
+            padding: clamp(12px, 2vw, 18px) clamp(15px, 3vw, 25px);
+            border-radius: 12px;
+            min-width: clamp(80px, 15vw, 100px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .time-box small {
+            letter-spacing: 2px;
+            font-size: clamp(0.7rem, 1vw, 0.8rem);
+            text-transform: uppercase;
+        }
+
+        /* --- SLOW & SMOOTH INTERACTIVE SCROLLER --- */
+        .scroller-section {
+            padding: clamp(60px, 8vw, 100px) 0;
+            background-color: var(--bg-cream);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .scroller-section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .scroller-section::before, .scroller-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: clamp(60px, 15vw, 250px);
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .scroller-section::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg-cream) 0%, transparent 100%);
+        }
+        .scroller-section::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg-cream) 0%, transparent 100%);
+        }
+
+        .scroller-track {
+            display: flex;
+            width: max-content;
+            will-change: transform; 
+        }
+
+        .scroller-group {
+            display: flex;
+            gap: clamp(15px, 3vw, 30px);
+            padding-right: clamp(15px, 3vw, 30px);
+            flex-shrink: 0;
+        }
+
+        .scroller-group img {
+            width: clamp(200px, 25vw, 300px);
+            height: clamp(280px, 35vw, 420px);
+            object-fit: cover;
+            border-radius: 150px 150px 15px 15px; 
+            border: 6px solid white;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+            flex-shrink: 0;
+            cursor: pointer;
+            -webkit-user-drag: none; 
+            
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.7s ease;
+            transform-origin: center center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .scroller-group img:hover {
+            transform: scale(1.08) translateY(-5px); 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            z-index: 10; 
+        }
+
+        /* Parallax Image Dividers */
+        .parallax-divider {
+            height: clamp(250px, 40vw, 400px);
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .parallax-divider::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(253, 251, 247, 0.15); 
+        }
+
+        /* Event Sections General */
+        .event-section {
+            padding: clamp(80px, 10vw, 140px) 5%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+        }
+
+        .event-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1;
+        }
+
+        .event-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: clamp(40px, 8vw, 80px);
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .event-wrapper.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .event-details {
+            flex: 1;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.85); 
+            padding: clamp(30px, 5vw, 50px);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            backdrop-filter: blur(8px); 
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .event-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .event-title {
+            font-size: clamp(2.8rem, 6vw, 4rem);
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .event-icon {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 15px;
+        }
+
+        .event-date {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 500;
+            margin: 25px 0;
+            padding: 20px 0;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            letter-spacing: 1.5px;
+            line-height: 1.8;
+            text-transform: uppercase;
+        }
+
+        .highlight-time {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            display: block;
+            margin-top: 5px;
+            letter-spacing: 1px;
+            text-transform: none;
+        }
+
+        .event-location {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            letter-spacing: 1px;
+            line-height: 1.8;
+        }
+
+        /* Specific Event Backgrounds & Overlays */
+        #mehndi { background-image: url('img/mhandi_bg.jpg'); }
+        #mehndi::before { background: rgba(242, 245, 240, 0.70); } 
+
+        #haldi { background-image: url('img/haldi_bg.jpg'); }
+        #haldi::before { background: rgba(255, 251, 240, 0.70); } 
+
+        #sangeet { background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=2000'); color: #fff; }
+        #sangeet::before { background: rgba(26, 32, 44, 0.70); } 
+        #sangeet .event-details { background: rgba(0, 0, 0, 0.6); border-top: 1px solid rgba(255,255,255,0.1); }
+        #sangeet .event-date { border-color: rgba(255,255,255,0.2); }
+        #sangeet .image-slot { border-color: #2D3748; }
+
+        #wedding { background-image: url('img/wedding_bg1.jpg'); }
+        #wedding::before { background: rgba(253, 245, 246, 0.75); } 
+        #wedding .event-details { 
+            text-align: center; 
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- FAQ SECTION --- */
+        #faq-section {
+            padding: clamp(80px, 10vw, 120px) 20px;
+            background-color: var(--bg-faq); 
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .faq-item summary {
+            padding: 25px 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dark);
+            transition: background 0.3s;
+        }
+
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: '+';
+            color: var(--gold);
+            font-size: 1.8rem;
+            font-weight: 400;
+            transition: transform 0.3s ease;
+        }
+        .faq-item[open] summary::after {
+            content: '−'; 
+            transform: rotate(180deg);
+        }
+
+        .faq-content {
+            padding: 0 30px 30px 30px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            /* Smooth fade in for content */
+            animation: fade-in 0.4s ease-out;
+        }
+
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .faq-content p { margin-bottom: 15px; }
+        .faq-content p:last-child { margin-bottom: 0; }
+
+        .dress-code-list {
+            list-style-type: none;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .dress-code-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .dress-code-list li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 0.8rem;
+        }
+
+        .dress-code-list strong {
+            color: var(--text-dark);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+
+        /* --- CONTACT DETAILS SECTION --- */
+        #contact-section {
+            padding: clamp(80px, 10vw, 120px) 20px;
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1490750967868-88cb4eca89a1?auto=format&fit=crop&q=80&w=2000'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        #contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(253, 251, 247, 0.85); 
+            z-index: 1;
+        }
+
+        #contact-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 35px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            flex: 1;
+            /* Using min() prevents overflowing on ultra-small mobile screens */
+            min-width: min(100%, 280px); 
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0px;
+            color: var(--text-dark);
+        }
+
+        .contact-card .role {
+            font-family: 'Great Vibes', cursive;
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-card .phone {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .contact-card .phone a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .contact-card .phone a:hover {
+            color: var(--dark-gold);
+        }
+
+        /* RSVP Section */
+        #rsvp {
+            background-image: url('img/1M4A1500.JPG');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            color: white;
+            padding: clamp(100px, 15vw, 150px) 20px;
+        }
+
+        #rsvp::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.65);
+        }
+
+        /* High-Quality Mobile Responsiveness */
+        @media (max-width: 850px) {
+            /* Disable fixed background on mobile to prevent severe lagging/jumping */
+            #hero, .event-section, .parallax-divider, #contact-section, #rsvp { 
+                background-attachment: scroll !important; 
+            } 
+
+            .event-wrapper, .event-wrapper.reverse {
+                flex-direction: column;
+                text-align: center;
+            }
+            .event-details {
+                text-align: center;
+                width: 100%;
+                padding: 35px 20px;
+            }
+            .faq-item summary {
+                padding: 20px;
+                font-size: 1.1rem;
+            }
+            .faq-content {
+                padding: 0 20px 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="hero">
+        <img src="img/logo_02.png" alt="Ganesha Logo" class="ganesha-logo reveal">
+        <div class="ganesha reveal">|| श्री गणेशाय नमः ||</div>
+        
+        <img src="img/logo_03.png" alt="Lokesh and Radha" class="hero-img reveal" style="transition-delay: 0.1s;">
+        
+        <div class="reveal" style="transition-delay: 0.2s;">
+            <h2 class="script-font">We are getting married</h2>
+            <h1>Lokesh <span class="script-font" style="font-size: 1.1em;">&</span> Radha</h1>
+            <p>Join us to celebrate our new beginning</p>
+        </div>
+        
+        <div id="countdown" class="reveal" style="transition-delay: 0.3s;">
+            <div class="time-box"><span id="days">00</span><small>Days</small></div>
+            <div class="time-box"><span id="hours">00</span><small>Hours</small></div>
+            <div class="time-box"><span id="minutes">00</span><small>Mins</small></div>
+            <div class="time-box"><span id="seconds">00</span><small>Secs</small></div>
+        </div>
+    </header>
+
+    <section class="scroller-section">
+        <div class="scroller-section-title reveal">
+            <h2 class="script-font" style="font-size: clamp(2.5rem, 5vw, 3.5rem);">Glimpses of Us</h2>
+            <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; color: var(--text-muted);">Beautiful Moments</p>
+        </div>
+        
+        <div class="scroller-track" id="imageScrollerTrack">
+            <div class="scroller-group" id="scrollerGroupRef">
+                <img src="img/1M4A1639.JPG" alt="Memory 1">
+                <img src="img/12121.JPG" alt="Memory 2">
+                <img src="img/1M4A1735.JPG" alt="Memory 3">
+                <img src="img/1M4A1172.JPG" alt="Memory 4">
+                <img src="img/1M4A2630.JPG" alt="Memory 5">
+                <img src="img/1M4A1837.JPG" alt="Memory 6">
+                <img src="img/ED0A9546.JPG" alt="Memory 7">
+                <img src="img/1M4A2245.JPG" alt="Memory 8">
+            </div>
+            <div class="scroller-group" aria-hidden="true">
+                <img src="img/1M4A2652.JPG" alt="Memory 1">
+                <img src="img/DSC00202.JPG" alt="Memory 2">
+                <img src="img/DSC08608.JPG" alt="Memory 3">
+                <img src="img/ED0A8955.JPG" alt="Memory 4">
+                <img src="img/ED0A9118.JPG" alt="Memory 5">
+                <img src="img/1M4A2277.JPG" alt="Memory 6">
+                <img src="img/ED0A9546.JPG" alt="Memory 7">
+                <img src="img/1M4A2245.JPG" alt="Memory 8">
+            </div>
+            <div class="scroller-group" aria-hidden="true">
+                <img src="img/1M4A1639.JPG" alt="Memory 1">
+                <img src="img/12121.JPG" alt="Memory 2">
+                <img src="img/1M4A1735.JPG" alt="Memory 3">
+                <img src="img/1M4A1172.JPG" alt="Memory 4">
+                <img src="img/1M4A2630.JPG" alt="Memory 5">
+                <img src="img/1M4A1837.JPG" alt="Memory 6">
+                <img src="img/ED0A9546.JPG" alt="Memory 7">
+                <img src="img/1M4A2245.JPG" alt="Memory 8">
+            </div>
+        </div>
+    </section>
+
+    <section id="mehndi" class="event-section">
+        <div class="event-wrapper">
+            <div class="event-details reveal">
+                <div class="event-icon">🌿</div>
+                <h2 class="script-font event-title">Mehndi Ceremony</h2>
+                <div class="event-date">
+                    Thursday, May 7, 2026 
+                    <span class="highlight-time">7:00 PM Onwards</span>
+                </div>
+                <p class="event-location">
+                    📍 Chintamani Nagari, <br>
+                    Old Mhada Colony, Wardha
+                </p>
+            </div>
+            <div class="event-image reveal" style="transition-delay: 0.2s;">
+                <img src="img/mhandi.jpg" alt="Mehndi Hands" class="image-slot">
+            </div>
+        </div>
+    </section>
+
+    <section id="haldi" class="event-section">
+        <div class="event-wrapper reverse">
+            <div class="event-details reveal">
+                <div class="event-icon">🌸</div>
+                <h2 class="script-font event-title">Haldi Ceremony</h2>
+                <div class="event-date">
+                    Friday, May 8, 2026 
+                    <span class="highlight-time">7:00 PM Onwards</span>
+                </div>
+                <p class="event-location">
+                    📍 Chintamani Nagari, <br>
+                    Old Mhada Colony, Wardha
+                </p>
+            </div>
+            <div class="event-image reveal" style="transition-delay: 0.2s;">
+                <img src="Img/haldi.jpg" alt="Haldi Ceremony" class="image-slot">
+            </div>
+        </div>
+    </section>
+
+    <section id="sangeet" class="event-section">
+        <div class="event-wrapper">
+            <div class="event-details reveal">
+                <div class="event-icon">🌙</div>
+                <h2 class="script-font event-title">Sangeet Night</h2>
+                <div class="event-date">
+                    Saturday, May 9, 2026 
+                    <span class="highlight-time">7:00 PM Onwards</span>
+                </div>
+                <p class="event-location">
+                    📍 Aditya Palace, <br>
+                    Arvi Rd, Wardha, Pipri, Maharashtra 442001
+                </p>
+            </div>
+            <div class="event-image reveal" style="transition-delay: 0.2s;">
+                <img src="img/sangeet.jpg" alt="Sangeet Dance" class="image-slot">
+            </div>
+        </div>
+    </section>
+
+    <section id="wedding" class="event-section">
+        <div class="container reveal event-details">
+            <img src="img/logo_02.png" alt="Ganesha Logo" class="ganesha-logo" style="margin-bottom: 5px;">
+            <div class="ganesha" style="margin-bottom: 10px;">|| श्री गणेशाय नमः ||</div>
+            
+            <h2 class="script-font event-title" style="margin-top: 10px;">The Wedding</h2>
+            
+            <img src="img/wedding1.jpg" alt="Wedding Mandap" class="wedding-img-slot">
+
+            <div class="event-date" style="max-width: 500px; margin: 35px auto;">
+                Sunday, May 10, 2026 
+                <span class="highlight-time" style="color: #d32f2f; font-size: 1.5rem; letter-spacing: 2px;">Muhurat: 10:47 AM</span>
+            </div>
+            <p class="event-location" style="max-width: 500px; margin: 0 auto;">
+                📍 Aditya Palace, <br>
+                Arvi Rd, Wardha, Pipri, Maharashtra 442001
+            </p>
+        </div>
+    </section>
+
+    <section id="faq-section">
+        <div class="container">
+            <h2 class="script-font reveal" style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 40px;">Good to Know</h2>
+            
+            <div class="faq-container">
+                <details class="faq-item reveal" style="transition-delay: 0.1s;">
+                    <summary>Is there a dress code for the events?</summary>
+                    <div class="faq-content">
+                        <p>While your presence is what matters most to us and dress codes are entirely <strong>optional</strong>, we would love for you to join in the colorful spirit of our celebrations if you wish!</p>
+                        
+                        <ul class="dress-code-list">
+                            <li><strong>Haldi:</strong> Let's paint the town yellow! We suggest a yellow Kurta for the men, and a yellow Kurti or Saree for the women.</li>
+                            <li><strong>Sangeet:</strong> Get ready to dance comfortably. We recommend a Kurta with a Chunni/Stole for men, and a Lehenga or Party Saree for women.</li>
+                            <li><strong>The Wedding:</strong> Please feel free to wear any traditional Indian attire that you love as we take our vows.</li>
+                        </ul>
+
+                        <p style="margin-top: 15px;"><strong>Note on Weather:</strong> Please note that summer temperatures in Wardha get quite high in May. We highly suggest wearing light, breathable, and cooler fabrics so you can stay comfortable and enjoy the celebrations to the fullest!</p>
+                    </div>
+                </details>
+
+                <details class="faq-item reveal" style="transition-delay: 0.2s;">
+                    <summary>What should we expect at the Sangeet?</summary>
+                    <div class="faq-content">
+                        <p>The Sangeet is all about celebrating through music, laughter, and dance! Expect a magical evening filled with choreographed family performances, a lively open dance floor, and delicious food.</p>
+                        <p>Don't worry if you aren't a professional dancer—just bring your enthusiasm, comfortable dancing shoes, and get ready to make some unforgettable memories with us!</p>
+                    </div>
+                </details>
+
+                <details class="faq-item reveal" style="transition-delay: 0.3s;">
+                    <summary>Will the events be indoors or outdoors?</summary>
+                    <div class="faq-content">
+                        <p>The <strong>Mehndi</strong> and <strong>Haldi</strong> ceremonies will be held separately at the bride's and groom's respective houses under a beautiful outdoor mandap (the Mehndi will be a lovely evening affair).</p>
+                        <p>The <strong>Sangeet</strong> will take place outside on the open lawn at our venue, while the <strong>Wedding</strong> ceremony will be hosted indoors in a fully air-conditioned hall.</p>
+                        <p>As a reminder, Wardha gets quite warm in May, so we recommend preparing accordingly and wearing light clothing for the outdoor events!</p>
+                    </div>
+                </details>
+                
+                <details class="faq-item reveal" style="transition-delay: 0.4s;">
+                    <summary>Will rooms be provided at the venue?</summary>
+                    <div class="faq-content">
+                        <p>Yes, we have arranged rooms at the venue for our family and friends! However, because the venue has a limited number of rooms, we kindly request our friends to adjust and share rooms with one another.</p>
+                        <p>Other hotels are quite far from the venue, and we really don't want you to miss out on any of the late-night wedding festivities! We will try our absolute best to accommodate everyone comfortably, but we sincerely apologize in advance if things get a little cozy. We truly appreciate your understanding and cooperation. Thank you!</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-section">
+        <div class="container">
+            <h2 class="script-font reveal" style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 40px;">Contact Details</h2>
+            
+            <div class="contact-grid reveal" style="transition-delay: 0.1s;">
+                <div class="contact-card">
+                    <h3>Bony Nakhale</h3>
+                    <div class="role">Big Brother</div>
+                    <div class="phone">
+                        📞 <a href="tel:8380949772">8380949772</a>, <a href="tel:702351144">702351144</a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Harshad Kale</h3>
+                    <div class="role">Small Brother</div>
+                    <div class="phone">
+                        📞 <a href="tel:9834497491">9834497491</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rsvp">
+        <div class="container reveal">
+            <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 20px; font-family: 'Playfair Display', serif; letter-spacing: 1px;">Celebrate With Us</h2>
+            <p style="font-size: clamp(1rem, 2vw, 1.2rem); max-width: 600px; margin: 0 auto; letter-spacing: 1px; line-height: 1.8;">Your presence will add joy to our new beginnings. We look forward to celebrating with you!</p>
+        </div>
+    </section>
+
+    <script>
+        // 1. LENIS SMOOTH SCROLL INITIALIZATION
+        const lenis = new Lenis({
+            duration: 2.2, 
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            smoothWheel: true,
+            wheelMultiplier: 0.8 
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // 2. JS SMOOTH INFINITE MARQUEE
+        const track = document.getElementById('imageScrollerTrack');
+        const referenceGroup = document.getElementById('scrollerGroupRef');
+        
+        let currentScroll = 0;
+        let scrollSpeed = 0.3; 
+        let targetSpeed = 0.3; 
+        let groupWidth = 0;
+
+        // Check width to prevent bug if images load slowly
+        function calculateWidth() {
+            if (referenceGroup) {
+                groupWidth = referenceGroup.getBoundingClientRect().width;
+            }
+        }
+        
+        // Recalculate on window resize or load
+        window.addEventListener('load', calculateWidth);
+        window.addEventListener('resize', calculateWidth);
+
+        track.addEventListener('mouseenter', () => { targetSpeed = 0; });
+        track.addEventListener('mouseleave', () => { targetSpeed = 0.3; });
+
+        function animateMarquee() {
+            scrollSpeed += (targetSpeed - scrollSpeed) * 0.03;
+            currentScroll -= scrollSpeed;
+
+            // Ensure width is loaded before looping
+            if (groupWidth > 0 && Math.abs(currentScroll) >= groupWidth) {
+                currentScroll += groupWidth;
+            }
+
+            track.style.transform = `translate3d(${currentScroll}px, 0, 0)`;
+            requestAnimationFrame(animateMarquee);
+        }
+        
+        // Initial call
+        calculateWidth();
+        requestAnimationFrame(animateMarquee);
+
+        // 3. SCROLL REVEAL ANIMATION
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1, 
+            rootMargin: "0px 0px -30px 0px" // Adjusted slightly for mobile viewports
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // 4. ACCORDION AUTO-CLOSE
+        const details = document.querySelectorAll('details');
+        details.forEach((targetDetail) => {
+            targetDetail.addEventListener('click', () => {
+                details.forEach((detail) => {
+                    if (detail !== targetDetail) {
+                        detail.removeAttribute('open');
+                    }
+                });
+            });
+        });
+
+        // 5. COUNTDOWN TIMER
+        const countDownDate = new Date("May 10, 2026 10:47:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "<h3 style='color: var(--gold); font-size: clamp(1.8rem, 4vw, 2.5rem); font-family: Playfair Display, serif; letter-spacing: 2px;'>Happily Married!</h3>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
